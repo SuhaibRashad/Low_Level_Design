@@ -12,3 +12,5 @@ https://gitlab.com/shrayansh8/interviewcodingpractise/-/tree/main/src/LowLevelDe
 
 
 https://github.com/keertipurswani/LLD-Design-Patterns
+
+https://github.com/prateek27/design-patterns-java/tree/main
