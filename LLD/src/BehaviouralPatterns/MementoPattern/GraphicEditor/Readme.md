@@ -1,4 +1,5 @@
 Graphic Editor Application Exercise
+
 You are designing a graphic editor application that enables users to create and manipulate various shapes, such as circles, squares, and rectangles. Each shape has attributes, including:
 
 
@@ -22,4 +23,3 @@ Implement the undo feature for shape attribute changes using the Memento Design 
 Output:
 
 After executing the code, you should save the shape's attributes to the editor three times using the specified values. Then, perform one undo operation to revert to the previous state. Finally, display the current shape attributes to confirm the changes made by the undo operation.
-
