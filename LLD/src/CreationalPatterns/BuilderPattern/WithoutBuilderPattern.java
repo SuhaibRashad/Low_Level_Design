@@ -9,13 +9,13 @@ class House {
     private boolean hasGarden;
 
     //Constructor
-    public House(String foundation,String structure,String roof, boolean hasGarage,boolean hasSwimmingPool,boolean hasGarden){
-        this.foundation = foundation;
-        this.structure = structure;
-        this.roof = roof;
-        this.hasGarage = hasGarage;
-        this.hasSwimmingPool = false;
-        this.hasGarden = hasGarden;
+    private House(HouseBuilder builder) {
+        this.foundation = builder.foundation;
+        this.structure = builder.structure;
+        this.roof = builder.roof;
+        this.hasGarage = builder.hasGarage;
+        this.hasSwimmingPool = builder.hasSwimmingPool;
+        this.hasGarden = builder.hasGarden;
     }
 
     @Override
@@ -29,14 +29,50 @@ class House {
                 ", hasGarden=" + hasGarden +
                 '}';
     }
+
+    public static class HouseBuilder{
+        private String foundation;
+        private String structure;
+        private String roof;
+        private boolean hasGarage;
+        private boolean hasSwimmingPool;
+        private boolean hasGarden;
+
+        //Builder Constructor with mandatory parameters
+        public HouseBuilder(String foundation,String structure,String roof){
+            this.foundation = foundation;
+            this.structure = structure;
+            this.roof = roof;
+        }
+
+        //Optional Parameters
+        public HouseBuilder setGarden(boolean hasGarden){
+            this.hasGarden = hasGarden;
+            return this;
+        }
+        public HouseBuilder setSwimmingPool(boolean hasSwimmingPool){
+            this.hasSwimmingPool = hasSwimmingPool;
+            return this;
+        }
+        public HouseBuilder setGarage(boolean hasGarage){
+            this.hasGarage = hasGarage;
+            return this;
+        }
+        public House build(){
+            return new House(this);
+        }
+    }
 }
+
+
 public class WithoutBuilderPattern {
     public static void main(String[] args) {
-        HouseWithBuilder houseWithBuilder = new HouseWithBuilder("Concrete","Wood","Shingles",true,true,false);
-        //House house2 = new House("Concrete","Wood","Shingles");
-        // Constructor Explosion -> Too Many Constructors
-        // Difficult to understand and maintain this code
-        // this is where builder pattern comes into picture
-        System.out.println(houseWithBuilder);
+        House house = new House.HouseBuilder("Concrete", "Wooden", "Tile")
+                .setGarden(true)
+                .setSwimmingPool(true)
+                .setGarage(false)
+                .build();
+
+        System.out.println(house);
     }
 }
