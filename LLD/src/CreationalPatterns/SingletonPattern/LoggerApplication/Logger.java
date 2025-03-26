@@ -16,7 +16,7 @@ public class Logger {
     public static synchronized Logger getInstance() {
         if (instance == null) {
             // TODO: Create a new instance of Logger if it does not exist.
-
+instance = new Logger();
         }
         return instance;
     }

@@ -13,13 +13,14 @@ public class Client {
         String infoMessage = sc.nextLine();
 
         // TODO: Log the info message using the appropriate logging method.
-
+        Logger.getInstance().info(infoMessage);
 
         // Get a warning message from the user
         System.out.print("Enter a warning message: ");
         String warnMessage = sc.nextLine();
 
         // TODO: Log the warn message using the appropriate logging method.
+        Logger.getInstance().warn(warnMessage);
 
 
         // Get an error message from the user
@@ -27,6 +28,7 @@ public class Client {
         String errorMessage = sc.nextLine();
 
         // TODO: Log the warn message using the appropriate logging method.
+        Logger.getInstance().error(errorMessage);
 
 
 
